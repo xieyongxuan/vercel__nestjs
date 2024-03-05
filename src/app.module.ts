@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
+import { AppService } from './app.service';
+import { AppController } from './app.controller';
 /** 导入业务模块 */
 import { CatsModule } from './cats/cats.module';
 
@@ -24,7 +26,7 @@ import { getEnvFiles } from './utils';
     /** 业务模块 */
     CatsModule,
   ],
-  controllers: [],
-  providers: [],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
